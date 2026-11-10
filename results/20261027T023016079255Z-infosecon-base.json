@@ -1,0 +1,87 @@
+{
+  "case": "infosecon-base",
+  "timestamp_utc": "2026-10-27T02:30:16.079255+00:00",
+  "excerpt_sha256": "56fe9bc119d0f99676c260a3632541f273d335d40bc9d22a307298f6407f07d5",
+  "environment": {
+    "ollama_version": "0.40.5",
+    "models": {
+      "qwen2.5:0.5b-base": {
+        "name": "qwen2.5:0.5b-base",
+        "model": "qwen2.5:0.5b-base",
+        "modified_at": "2026-10-26T22:29:35.932096058-04:00",
+        "size": 397819205,
+        "digest": "24c564a74dea9d1925af145aaf8c5947b74de74a8c53c5125214351b97c7e05a",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen2",
+          "families": [
+            "qwen2"
+          ],
+          "parameter_size": "494.03M",
+          "quantization_level": "Q4_K_M",
+          "context_length": 32768,
+          "embedding_length": 896,
+          "runner": "ggml"
+        },
+        "capabilities": [
+          "tools",
+          "completion"
+        ]
+      },
+      "qwen2.5:0.5b-instruct": {
+        "name": "qwen2.5:0.5b-instruct",
+        "model": "qwen2.5:0.5b-instruct",
+        "modified_at": "2026-10-26T22:29:36.309520327-04:00",
+        "size": 397821319,
+        "digest": "a8b0c51577010a279d933d14c2a8ab4b268079d44c5c8830c0a93900f1827c67",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen2",
+          "families": [
+            "qwen2"
+          ],
+          "parameter_size": "494.03M",
+          "quantization_level": "Q4_K_M",
+          "context_length": 32768,
+          "embedding_length": 896,
+          "runner": "ggml"
+        },
+        "capabilities": [
+          "completion",
+          "tools"
+        ]
+      }
+    }
+  },
+  "endpoint": "generate",
+  "request": {
+    "model": "qwen2.5:0.5b-base",
+    "stream": false,
+    "options": {
+      "temperature": 0,
+      "seed": 42,
+      "num_predict": 256,
+      "num_ctx": 2048
+    },
+    "keep_alive": "5m",
+    "prompt": "Using only the supplied text, identify the event, location, date, and admission price.\nMark missing information as \"Not stated\" and flag conflicting years.\nDo not choose a year when the supplied text conflicts. Do not infer a price from ticket requirements.\nReturn exactly these five labeled lines:\nEvent: ...\nLocation: ...\nDate: ...\nAdmission price: ...\nConflicting years: ... (or \"None stated\")\n\nSupplied text:\n<announcement>\nTriangle InfoSeCon | Friday, October 30, 2026\n\nRaleigh Convention Center\n\nAdvance Ticket Purchase Required\n\nBuy No Later Than September 30, 2026. Details\n\nDate:\nOctober 30\n\nTime:\n9:00 am - 5:00 pm EDT\n\nEvent Categories:\nRaleigh ISSA Chapter, Triangle InfoSeCon\n\nEvent Tags:\nCyberSecurity, Raleigh ISSA, Triangle InfoSeCon\n\nWebsite:\nhttps://triangleinfosecon.com/\n</announcement>\n\nAnswer:\n",
+    "raw": true
+  },
+  "response": {
+    "model": "qwen2.5:0.5b-base",
+    "created_at": "2026-10-27T02:30:16.077508Z",
+    "response": "Event: Triangle InfoSeCon\nLocation: Raleigh Convention Center\nDate: October 30\nAdmission price: $50\nConflicting years: None stated",
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 1276977583,
+    "load_duration": 1053003958,
+    "prompt_eval_count": 203,
+    "prompt_eval_cached_count": 0,
+    "prompt_eval_duration": 104087000,
+    "eval_count": 35,
+    "eval_duration": 113754000
+  },
+  "output": "Event: Triangle InfoSeCon\nLocation: Raleigh Convention Center\nDate: October 30\nAdmission price: $50\nConflicting years: None stated"
+}
